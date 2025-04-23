@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!-- 设置语言为英语，默认主题为黑暗模式 -->
+<html lang="en" data-theme="dark" data-lang="en">
+  <head>
+    <!-- 基础SEO设置 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 核心SEO元数据 -->
+    <title>John Doe - Full Stack Developer &amp; UI/UX Designer</title>
+    <meta name="description" content="Professional portfolio of John Doe, a full stack developer and UI/UX designer with 5+ years of experience creating modern web applications.">
+    <meta name="keywords" content="full stack developer, web developer, UI/UX designer, JavaScript, React, Node.js, portfolio">
+    <meta name="author" content="John Doe">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com">
+    <!-- Open Graph / Facebook 社交分享优化 -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:title" content="John Doe - Professional Full Stack Developer & UI/UX Designer Portfolio">
+    <meta property="og:description" content="Professional portfolio of John Doe, a full stack developer and UI/UX designer with 5+ years of experience creating modern web applications.">
+    <meta property="og:image" content="https://yourdomain.com/assets/images/logo.jpg">
+    <!-- Twitter 卡片优化 -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com">
+    <meta property="twitter:title" content="John Doe - Professional Full Stack Developer & UI/UX Designer Portfolio">
+    <meta property="twitter:description" content="Professional portfolio of John Doe, a full stack developer and UI/UX designer with 5+ years of experience creating modern web applications.">
+    <meta property="twitter:image" content="https://yourdomain.com/assets/images/logo.jpg">
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./assets/images/logo.jpg">
+    <!-- PWA 清单文件链接 -->
+    <link rel="manifest" href="/manifest.json">
+    <!-- 字体和样式 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <!-- JavaScript 库 -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- 内联样式 -->
+    <style>
+      .fixed {
+        position: fixed;
+      }
+    
+      .inset-0 {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    
+      .z-0 {
+        z-index: 0;
+      }
+    
+      .w-full {
+        width: 100%;
+      }
+    
+      .h-full {
+        height: 100%;
+      }
+
+      .no-pointer-events {
+        pointer-events: none;
+      }
+    </style>
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "John Doe",
+      "jobTitle": "Full Stack Developer & UI/UX Designer",
+      "url": "https://yourdomain.com",
+      "sameAs": [
+        "https://github.com/johndoe",
+        "https://linkedin.com/in/johndoe"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      }
+    }
+    </script>
+    <!-- Tailwind 配置 -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backdropBlur: {
+              custom: '10px'
+            },
+            backgroundColor: {
+              'glass': 'rgba(255, 255, 255, 0.1)'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="fixed inset-0 z-0 no-pointer-events">
+      <canvas id="canvas" class="w-full h-full"></canvas>
+    </div>
+    <!-- 导航栏 -->
+    <header class="fixed w-full z-50 bg-opacity-90 backdrop-blur-custom bg-glass transition-shadow duration-300 ease-in-out">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <!-- logo -->
+          <div class="flex items-center gap-2">
+            <img src="./assets/images/logo.jpg" alt="John Doe's Avatar" class="w-10 h-10 rounded-full">
+            <a href="#home" class="text-2xl font-bold">
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-pink-500">John</span>
+              <span class="text-text-dark dark:text-text-light">Doe</span>
+            </a>
+          </div>
+          <!-- 桌面导航 -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <ul class="flex space-x-8">
+              <li><a href="#home" class="text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Home</a></li>
+              <li><a href="#about" class="text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">About</a></li>
+              <li><a href="#skills" class="text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Skills</a></li>
+              <li><a href="#projects" class="text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Projects</a></li>
+              <li><a href="#contact" class="text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+              <button id="theme-toggle" type="button" class="p-2 rounded-full focus:outline-none hover:bg-gray-200 transition duration-300 ease-in-out" aria-label="Toggle Theme">
+                <svg id="theme-icon" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                </svg>
+              </button>
+            </div>
+          </nav>
+          <!-- 移动菜单按钮 -->
+          <button id="mobile-menu-button" type="button" class="md:hidden p-2 rounded-full focus:outline-none hover:bg-gray-200 transition duration-300 ease-in-out" aria-label="Toggle Menu">
+            <svg class="h-6 w-6 text-text-dark dark:text-text-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- 移动导航 -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4">
+          <ul class="flex flex-col space-y-4">
+            <li><a href="#home" class="block py-2 text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Home</a></li>
+            <li><a href="#about" class="block py-2 text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">About</a></li>
+            <li><a href="#skills" class="block py-2 text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Skills</a></li>
+            <li><a href="#projects" class="block py-2 text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Projects</a></li>
+            <li><a href="#contact" class="block py-2 text-text-dark dark:text-text-light hover:text-primary transition duration-300 ease-in-out">Contact</a></li>
+          </ul>
+          <div class="mt-4 flex justify-center">
+            <button id="mobile-theme-toggle" type="button" class="p-2 rounded-full focus:outline-none hover:bg-gray-200 transition duration-300 ease-in-out" aria-label="Toggle Theme">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- 英雄部分 -->
+    <section id="home" class="min-h-screen flex items-center relative">
+      <canvas id="particles" class="absolute inset-0 -z-10"></canvas>
+      <div class="container mx-auto px-6 z-10 text-center">
+        <!-- 添加头像并应用动画类 -->
+        <img src="./assets/images/logo.jpg" alt="John Doe's Avatar" class="w-32 h-32 rounded-full mx-auto mb-8 breathe-animation">
+        <!-- 增加底部外边距 -->
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          <span class="gradient-text bg-gradient-to-r from-indigo-500 to-pink-500">Hi, I'm</span>
+          <br>
+          <span class="typing-text text-5xl md:text-7xl font-bold text-text-dark dark:text-text-light"></span>
+        </h1>
+        <!-- 增加底部外边距 -->
+        <p class="text-xl md:text-2xl mb-10 text-text-dark dark:text-text-light">Full Stack Developer &amp; UI/UX Designer</p>
+        <div class="flex justify-center space-x-4">
+          <!-- 修改 View Work 按钮背景色，降低透明度 -->
+          <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-indigo-400/60 to-purple-500/60 rounded-lg text-white font-medium hover:opacity-90">View Work</a>
+          <!-- 给 Contact Me 按钮添加初始背景色，已添加，保持不变 -->
+          <a href="#contact" class="px-6 py-3 border border-primary bg-primary/10 rounded-lg text-primary font-medium hover:bg-primary">Contact Me</a>
+        </div>
+      </div>
+    </section>
+    <!-- 关于我部分 -->
+    <section id="about" class="py-20 bg-[#0f172a] dark:bg-[#0f172a]">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text bg-gradient-to-r from-indigo-500 to-purple-600">About</span>
+          <span class="text-text-dark dark:text-text-light">Me</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-12"></div>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="lg:w-1/2">
+            <img src="https://deepsiteai.com/hero.webp" alt="Profile" class="w-full h-64 md:h-96 object-cover rounded-lg neomorphic">
+          </div>
+          <div class="lg:w-1/2 text-left">
+            <p class="text-lg md:text-xl mb-8 text-text-dark dark:text-text-light">
+              Passionate full-stack developer with 5+ years of experience crafting beautiful and functional web applications. Proficient in modern JavaScript technologies and dedicated to creating exceptional user experiences.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex items-center space-x-4">
+                <div class="w-4 h-4 rounded-full bg-primary"></div>
+                <span class="text-text-dark dark:text-text-light">Age: 28</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-4 h-4 rounded-full bg-primary"></div>
+                <span class="text-text-dark dark:text-text-light">Location: San Francisco, CA</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-4 h-4 rounded-full bg-primary"></div>
+                <span class="text-text-dark dark:text-text-light">Email: hello@john.doe.com</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-4 h-4 rounded-full bg-primary"></div>
+                <span class="text-text-dark dark:text-text-light">Freelance: Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 技能部分 -->
+    <section id="skills" class="py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-text-light">
+          My
+          <span class="gradient-text bg-gradient-to-r from-indigo-500 to-purple-600">Skills</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-12"></div>
+        <!-- 技能进度条 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
+          <div class="text-left">
+            <p class="mb-2 text-text-light">JavaScript</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-90"></div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p class="mb-2 text-text-light">React</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-85"></div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p class="mb-2 text-text-light">Node.js</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-80"></div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p class="mb-2 text-text-light">MongoDB</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-75"></div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p class="mb-2 text-text-light">TypeScript</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-80"></div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p class="mb-2 text-text-light">Mobile Dev</p>
+            <div class="bg-gray-800 rounded-full h-2">
+              <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full skill-progress-70"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 项目部分 -->
+    <section id="projects" class="py-20 bg-[#0f172a] dark:bg-[#0f172a]">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          My
+          <span class="gradient-text bg-gradient-to-r from-indigo-500 to-purple-600">Projects</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-12"></div>
+        <div class="filter-buttons mb-12 flex justify-center gap-4">
+          <button
+            type="button"
+            class="filter-btn active px-6 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-6 py-2 rounded-lg border border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+            data-filter="web"
+            aria-pressed="false"
+          >
+            Web
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-6 py-2 rounded-lg border border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+            data-filter="mobile"
+            aria-pressed="false"
+          >
+            Mobile
+          </button>
+          <button
+            type="button"
+            class="filter-btn px-6 py-2 rounded-lg border border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+            data-filter="design"
+            aria-pressed="false"
+          >
+            Design
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+          <div class="project-card" data-category="web">
+            <div class="project-front absolute inset-0">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=80" alt="Project 1" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+              <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-xl font-bold text-white">E-commerce Platform</h3>
+                <p class="text-gray-300">React, Node.js, MongoDB</p>
+              </div>
+            </div>
+            <div class="project-back absolute inset-0 bg-gray-900 p-6 flex flex-col justify-center items-center text-center">
+              <h3 class="text-xl font-bold text-white mb-4">E-commerce Platform</h3>
+              <p class="text-gray-300 mb-4">Full-featured online store with payment integration and admin dashboard.</p>
+              <a href="#" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">View Details</a>
+            </div>
+          </div>
+          <div class="project-card" data-category="mobile">
+            <div class="project-front absolute inset-0">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=80" alt="Project 2" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+              <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-xl font-bold text-white">Task Management App</h3>
+                <p class="text-gray-300">React Native, Firebase</p>
+              </div>
+            </div>
+            <div class="project-back absolute inset-0 bg-gray-900 p-6 flex flex-col justify-center items-center text-center">
+              <h3 class="text-xl font-bold text-white mb-4">Task Management App</h3>
+              <p class="text-gray-300 mb-4">Cross-platform productivity app with real-time sync and collaboration.</p>
+              <a href="#" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">View Details</a>
+            </div>
+          </div>
+          <div class="project-card" data-category="design">
+            <div class="project-front absolute inset-0">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=80" alt="Project 3" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+              <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="text-xl font-bold text-white">UI/UX Design Project</h3>
+                <p class="text-gray-300">Figma, Adobe XD</p>
+              </div>
+            </div>
+            <div class="project-back absolute inset-0 bg-gray-900 p-6 flex flex-col justify-center items-center text-center">
+              <h3 class="text-xl font-bold text-white mb-4">UI/UX Design Project</h3>
+              <p class="text-gray-300 mb-4">Designed user interfaces and experiences for a new mobile application.</p>
+              <a href="#" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 联系部分 -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="gradient-text bg-gradient-to-r from-indigo-500 to-purple-600">Let's</span>
+          <span class="text-text-dark dark:text-text-light">Connect</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto mb-12"></div>
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <!-- 联系表单 -->
+          <div class="lg:w-1/2 w-full">
+            <form id="contact-form" class="text-left" onsubmit="return validateForm()">
+              <div class="mb-6">
+                <label for="name" class="block mb-2 text-sm font-medium text-text-dark dark:text-text-light">Your Name</label>
+                <input type="text" id="name" name="name" class="neomorphic w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your name">
+                <p id="name-error" class="text-red-500 text-sm hidden">Please enter your name</p>
+              </div>
+              <div class="mb-6">
+                <label for="email" class="block mb-2 text-sm font-medium text-text-dark dark:text-text-light">Your Email</label>
+                <input type="email" id="email" name="email" class="neomorphic w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your email">
+                <p id="email-error" class="text-red-500 text-sm hidden">Please enter a valid email</p>
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block mb-2 text-sm font-medium text-text-dark dark:text-text-light">Your Message</label>
+                <textarea id="message" name="message" rows="6" class="neomorphic w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Type your message here"></textarea>
+                <p id="message-error" class="text-red-500 text-sm hidden">Please enter your message</p>
+              </div>
+              <div id="form-message" class="mb-4 hidden text-center text-lg font-medium"></div>
+              <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg text-white font-medium hover:opacity-90">Send Message</button>
+            </form>
+          </div>
+          <!-- 联系信息 -->
+          <div class="lg:w-1/2 w-full text-left">
+            <div class="mb-8">
+              <h3 class="text-xl font-bold mb-4 text-primary">Contact Information</h3>
+              <div class="flex items-center space-x-4 mb-3">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <span class="text-text-dark dark:text-text-light">hello@john.doe.com</span>
+              </div>
+              <div class="flex items-center space-x-4">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="text-text-dark dark:text-text-light">San Francisco, CA</span>
+              </div>
+            </div>
+            <!-- 社交徽章 -->
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-primary">Follow Me</h3>
+              <div class="flex space-x-4">
+                <a href="https://github.com/johndoe" target="_blank" class="neomorphic p-2 rounded-full hover:scale-105 transition">
+                  <span class="sr-only">访问 John Doe 的 GitHub 页面</span>
+                  <svg class="h-6 w-6 text-gray-300 hover:text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com/in/johndoe" target="_blank" class="neomorphic p-2 rounded-full hover:scale-105 transition">
+                  <span class="sr-only">访问 John Doe 的 LinkedIn 页面</span>
+                  <svg class="h-6 w-6 text-gray-300 hover:text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                  </svg>
+                </a>
+                <!-- 添加 Twitter 图标 -->
+                <a href="https://twitter.com/johndoe" target="_blank" class="neomorphic p-2 rounded-full hover:scale-105 transition">
+                  <span class="sr-only">访问 John Doe 的 Twitter 页面</span>
+                  <svg class="h-6 w-6 text-gray-300 hover:text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
+                  </svg>
+                </a>
+                <!-- 添加 Instagram 图标 -->
+                <a href="https://www.instagram.com/johndoe" target="_blank" class="neomorphic p-2 rounded-full hover:scale-105 transition">
+                  <span class="sr-only">访问 John Doe 的 Instagram 页面</span>
+                  <svg class="h-6 w-6 text-gray-300 hover:text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                  </svg>
+                </a>
+                <!-- 添加 Facebook 图标 -->
+                <a href="https://www.facebook.com/johndoe" target="_blank" class="neomorphic p-2 rounded-full hover:scale-105 transition">
+                  <span class="sr-only">访问 John Doe 的 Facebook 页面</span>
+                  <svg class="h-6 w-6 text-gray-300 hover:text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 页脚 -->
+    <footer class="w-full bg-[#0f172a] dark:bg-[#0f172a] border-t border-[rgba(255,255,255,0.1)]">
+      <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+        <!-- 版权信息 -->
+        <div class="text-sm text-text-light dark:text-text-dark">
+           &copy; 2025 John Doe. All rights reserved.
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://github.com/johndoe" target="_blank" class="text-text-light dark:text-text-dark hover:text-primary transition">
+            <span class="sr-only">访问 John Doe 的 GitHub 页面</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+          </a>
+          <a href="sitemap.xml" target="_blank" class="text-text-light dark:text-text-dark hover:text-primary transition">
+            <span class="sr-only">访问站点地图</span>
+            <i class="fa-solid fa-sitemap h-6 w-6"></i>
+          </a>
+          <a href="rss.xml" target="_blank" class="text-text-light dark:text-text-dark hover:text-primary transition">
+            <span class="sr-only">访问 RSS 订阅</span>
+            <i class="fa-solid fa-rss h-6 w-6"></i>
+          </a>
+        </div>
+        <div class="flex space-x-4 text-sm">
+          <a href="privacy-policy.html" class="text-text-light dark:text-text-dark hover:text-primary transition">Privacy Policy</a>
+          <a href="copyright.html" class="text-text-light dark:text-text-dark hover:text-primary transition">Copyright Statement</a>
+        </div>
+      </div>
+    </footer>
+    <!-- 引入 PWA Service Worker 脚本 -->
+    <script src="./assets/js/scripts.js"></script>
+  </body>
+</html>

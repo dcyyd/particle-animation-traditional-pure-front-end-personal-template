@@ -1,0 +1,459 @@
+/* 全局变量定义，方便统一管理颜色、阴影等样式 */
+:root {
+    --primary: #6366f1;
+    --secondary: #8b5cf6;
+    --accent: #ec4899;
+    --bg-dark: #0f172a;
+    --bg-light: #f8fafc;
+    --text-dark: #e2e8f0;
+    --text-light: #1e293b;
+    --global-font-family: 'OPPO-Sans', 'ResourceHanRoundedCN-Bold', 'Inter', sans-serif;
+    --shadow-neo: 10px 10px 20px #0d1424, -10px -10px 20px #111a30;
+    --shadow-light-neo: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* 引入自定义字体，使用 @font-face 规则 */
+@font-face {
+    font-family: 'ResourceHanRoundedCN-Bold';
+    src: url('../fonts/ResourceHanRoundedCN-Medium.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OPPO-Sans';
+    src: url(../fonts/OPPO-Sans-4.0.ttf) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 浅色主题下的变量覆盖，通过修改变量值实现主题切换 */
+.light-theme {
+    --bg-dark: #f8fafc;
+    --bg-light: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #ffffff;
+    --shadow-neo: var(--shadow-light-neo);
+}
+
+/* 基础样式，设置页面整体字体、背景色、文字颜色等 */
+body {
+    font-family: var(--global-font-family), sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* 新拟态设计，使用全局变量设置圆角、背景色和阴影 */
+.neomorphic {
+    border-radius: 1rem;
+    background: var(--bg-dark);
+    box-shadow: var(--shadow-neo);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+/* 浅色主题下新拟态样式调整 */
+.light-theme .neomorphic {
+    background: var(--bg-light);
+    box-shadow: var(--shadow-light-neo);
+}
+
+/* 渐变文字，使用背景裁剪实现文字渐变效果 */
+.gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* 兼容 Safari 等浏览器 */
+    color: transparent;
+}
+
+/* 雷达图样式，设置固定宽高和透视效果 */
+.radar-chart {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* 项目卡片翻转效果，设置过渡效果和 3D 变换 */
+.project-card {
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    height: 300px;
+    cursor: pointer;
+}
+
+/* 鼠标悬停时卡片翻转 */
+.project-card:hover {
+    transform: rotateY(180deg);
+}
+
+/* 项目卡片正反面通用样式，隐藏背面元素 */
+.project-front,
+.project-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+/* 项目卡片背面样式，设置翻转角度和布局 */
+.project-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* 滚动条样式，设置宽度 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* 滚动条轨道样式，使用全局变量设置背景色 */
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+/* 滚动条滑块样式，使用全局变量设置背景色和圆角 */
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* 浅色主题下滚动条轨道样式调整 */
+.light-theme ::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+/* 导航栏样式，设置背景色过渡效果 */
+header {
+    transition: background-color 0.3s ease;
+}
+
+/* 浅色主题下导航栏样式，设置半透明背景和阴影 */
+.light-theme header {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 导航栏链接样式，使用全局变量设置文字颜色和过渡效果 */
+nav ul li a {
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+    text-decoration: none;
+    /* 去除下划线 */
+}
+
+/* 鼠标悬停时导航栏链接颜色变化 */
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+/* 语言切换下拉菜单样式，使用全局变量设置背景色和文字颜色 */
+#language-dropdown {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    border: none;
+    /* 去除边框 */
+    border-radius: 0.25rem;
+    /* 添加圆角 */
+}
+
+/* 浅色主题下语言切换下拉菜单样式 */
+.light-theme #language-dropdown {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* 语言切换下拉菜单链接样式，使用全局变量设置文字颜色和过渡效果 */
+#language-dropdown a {
+    color: var(--text-dark);
+    transition: background-color 0.3s ease;
+    display: block;
+    /* 使链接块级显示 */
+    padding: 0.5rem 1rem;
+    /* 添加内边距 */
+    text-decoration: none;
+    /* 去除下划线 */
+}
+
+/* 鼠标悬停时语言切换下拉菜单链接背景色变化 */
+#language-dropdown a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计，屏幕宽度小于等于 1024px 时调整布局 */
+@media (max-width: 1024px) {
+    .lg\:flex {
+        flex-direction: column;
+    }
+
+    .lg\:w-1\/2 {
+        width: 100%;
+    }
+}
+
+/* 响应式设计，屏幕宽度小于等于 768px 时调整布局 */
+@media (max-width: 768px) {
+    .md\:flex {
+        flex-direction: column;
+    }
+
+    .md\:w-1\/2 {
+        width: 100%;
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .md\:space-x-8 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .md\:space-x-8>* {
+        margin-left: 2rem !important;
+        margin-right: 2rem !important;
+    }
+
+    .md\:gap-12 {
+        gap: 6rem;
+    }
+
+    .md\:text-4xl {
+        font-size: 2.5rem;
+    }
+}
+
+/* 响应式设计，屏幕宽度小于等于 640px 时调整布局 */
+@media (max-width: 640px) {
+    .sm\:px-6 {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .sm\:text-2xl {
+        font-size: 1.5rem;
+    }
+
+    .sm\:text-xl {
+        font-size: 1.25rem;
+    }
+
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .md\:gap-8 {
+        gap: 2rem;
+    }
+
+    .md\:py-20 {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    .md\:text-6xl {
+        font-size: 3rem;
+    }
+
+    .md\:text-7xl {
+        font-size: 4rem;
+    }
+
+    .md\:text-3xl {
+        font-size: 1.75rem;
+    }
+
+    .md\:mb-12 {
+        margin-bottom: 3rem !important;
+    }
+
+    .md\:mb-8 {
+        margin-bottom: 2rem !important;
+    }
+
+    .md\:mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .md\:space-y-8 {
+        gap: 2rem;
+    }
+
+    .md\:space-x-4 {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+    .md\:space-x-4>* {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+    .md\:flex-col {
+        flex-direction: column;
+    }
+
+    .md\:items-center {
+        align-items: center;
+    }
+
+    .md\:justify-center {
+        justify-content: center;
+    }
+
+    /* 粒子背景大小调整，降低透明度 */
+    #particles {
+        opacity: 0.5;
+    }
+}
+
+/* 呼吸动画关键帧 */
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+/* 应用呼吸动画的类 */
+.breathe-animation {
+    animation: breathe 3s infinite;
+}
+
+/* 技能进度条样式，使用公共类和百分比类组合 */
+.skill-progress {
+    height: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.skill-progress>div {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+}
+
+.skill-progress-90>div {
+    width: 90%;
+}
+
+.skill-progress-85>div {
+    width: 85%;
+}
+
+.skill-progress-80>div {
+    width: 80%;
+}
+
+.skill-progress-75>div {
+    width: 75%;
+}
+
+.skill-progress-70>div {
+    width: 70%;
+}
+
+/* 屏幕阅读器专用样式，隐藏元素但可被屏幕阅读器访问 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* 移动端 footer 布局调整 */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .footer .container>div {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* 浅色主题下关于我部分的标题、段落和信息文本颜色 */
+.light-theme #about h2 span.text-text-dark,
+.light-theme #about p.text-text-dark,
+.light-theme #about .grid span.text-text-dark {
+    color: var(--text-light);
+}
+
+/* 浅色主题下项目部分 h2 标题样式 */
+.light-theme #projects h2 {
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease;
+}
+
+/* 浅色主题下项目部分 h2 标题中渐变文字的样式 */
+.light-theme #projects h2 .gradient-text {
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: background-image 0.3s ease;
+}
+
+/* 社交徽章图标样式 */
+.neomorphic svg {
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+}
+
+.neomorphic:hover svg {
+    color: var(--primary);
+}
+
+/* 浅色主题下社交徽章图标样式 */
+.light-theme .neomorphic svg {
+    color: var(--text-dark);
+}
+
+.light-theme .neomorphic:hover svg {
+    color: var(--primary);
+}
+
+/* 浅色主题下 footer 文字、链接和图标颜色 */
+.light-theme footer .text-text-light,
+.light-theme footer .text-text-dark,
+.light-theme footer a,
+.light-theme footer svg,
+.light-theme footer i {
+    color: #ffffff;
+}
+
+.light-theme footer a:hover,
+.light-theme footer a:hover svg,
+.light-theme footer a:hover i {
+    color: var(--primary);
+}
